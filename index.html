@@ -11,8 +11,8 @@
 <body>
     <header>
         <ul>
-            <li><a href="#myInfo">Introducción</a></li>
-            <li><a href="">Sobre mi</a></li>
+            <li><a href="#" data-target="bloqueo-scroll">Introducción</a></li>
+            <li><a href="#" data-target="sobreMi">Sobre mi</a></li>
             <li><a href="">Habilidades</a></li>
             <li><a href="">Proyectos</a></li>
             <li><a href="">Contacto</a></li>
@@ -23,33 +23,212 @@
         </div>
     </header>
     <main>
-        <section class="myInfo">
+        <section id="bloqueo-scroll" class="myInfo">
             <img src="./storage/img/carnet foto.jpeg" alt="">
             <article>
                 <h1>Uriel Vargas</h1>
+                <p>
+                    Tecnología con propósito, soluciones con visión
+                </p>
+            </article>
+        </section>
+
+        <section id="sobreMi" class="aboutMe">
+            <article class="aficiones">
+                <h2>Sobre mi</h2>
                 <p>
                     ¡Hola! Soy un desarrollador web apasionado por la tecnología y el diseño funcional. Me especializo
                     en crear sitios web modernos, responsivos y accesibles, combinando HTML, CSS y JavaScript para
                     brindar experiencias intuitivas al usuario.
                     <br><br>
                     Me encanta aprender nuevas herramientas y lenguajes que me permitan mejorar mis proyectos.
-                    Actualmente estoy profundizando en frameworks como React, Vue.js y trabajando en proyectos personales que me
+                    Actualmente estoy profundizando en frameworks como React, Vue.js y trabajando en proyectos
+                    personales que me
                     ayuden a seguir creciendo como profesional.
                     <br><br>
                     Fuera del código, disfruto resolver acertijos, explorar nuevas ideas creativas y colaborar con otros
                     desarrolladores para construir soluciones útiles y significativas.
                 </p>
             </article>
+            <div class="circle">
+                <img src="./storage/img/minesweeper.png" alt="">
+                <img src="./storage/img/workout.webp" alt="">
+                <img src="./storage/img/read.svg" alt="">
+            </div>
         </section>
 
-        <section>
+        <section class="skills">
+            <h2>Mis habilidades</h2>
+            <article class="skills-grid">
+                <div class="card">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <img src="./storage/img/python-Br_1nSPf.webp" alt="">
+                        </div>
+                        <div class="card-back">
+                            <h3>Python</h3>
+                        </div>
+                    </div>
+                </div>
 
+                <div class="card">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <img src="./storage/img/html-C5pP51ZF.png" alt="">
+                        </div>
+                        <div class="card-back">
+                            <h3>HTML</h3>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <img src="./storage/img/CSS-BwuxcSOM.png" alt="">
+                        </div>
+                        <div class="card-back">
+                            <h3>CSS</h3>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <img src="./storage/img/JavaScript-ae_fozer.png" alt="">
+                        </div>
+                        <div class="card-back">
+                            <h3>JavaScript</h3>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <img src="./storage/img/mysql-D1fmG43W.png" alt="">
+                        </div>
+                        <div class="card-back">
+                            <h3>MySQL</h3>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <img src="./storage/img/Laravel.svg.png" alt="">
+                        </div>
+                        <div class="card-back">
+                            <h3>Laravel</h3>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <img src="./storage/img/Angular_full_color_logo.svg.png" alt="">
+                        </div>
+                        <div class="card-back">
+                            <h3>Angular</h3>
+                        </div>
+                    </div>
+                </div>
+            </article>
         </section>
-
-
     </main>
 
+    <script>
+        let scrollCount = 0;
+        const objetivo = 3;
+        const seccion = document.getElementById("bloqueo-scroll");
 
+        let zoomAplicado = false;
+        let scrollDesbloqueado = false;
+
+        let bloqueoActivo = true;
+
+        function bloquearScroll() {
+            scrollDesbloqueado = false;
+            bloqueoActivo = true;
+        }
+
+        function desbloquearScroll() {
+            scrollDesbloqueado = true;
+            bloqueoActivo = false;
+        }
+
+        // Al inicio de la página
+        if (window.scrollY === 0) {
+            bloquearScroll();
+        }
+
+        // Reiniciar si vuelve al tope
+        window.addEventListener("scroll", () => {
+            if (window.scrollY === 0 && scrollDesbloqueado) {
+                scrollCount = 0;
+                zoomAplicado = false;
+                seccion.style.transform = "scale(1)";
+                bloquearScroll();
+            }
+        });
+
+        // Bloqueo suave del scroll (sin quitar la barra)
+        window.addEventListener("wheel", (e) => {
+            if (bloqueoActivo) {
+                e.preventDefault();
+
+                if (e.deltaY > 0) {
+                    scrollCount++;
+                    console.log(`Intentos de scroll: ${scrollCount}`);
+
+                    if (scrollCount >= objetivo) {
+                        seccion.style.transition = "transform 0.5s ease";
+                        seccion.style.transform = "scale(1.05)";
+                        zoomAplicado = true;
+
+                        setTimeout(() => {
+                            desbloquearScroll();
+                        }, 500);
+                    }
+                }
+                return;
+            }
+
+            // Ya desbloqueado
+            if (zoomAplicado && e.deltaY < 0) {
+                scrollCount--;
+                if (scrollCount <= 0) {
+                    seccion.style.transform = "scale(1)";
+                    zoomAplicado = false;
+                }
+            }
+
+            if (!zoomAplicado && e.deltaY > 0) {
+                scrollCount++;
+                if (scrollCount >= objetivo) {
+                    seccion.style.transform = "scale(1.05)";
+                    zoomAplicado = true;
+                }
+            }
+        }, { passive: false });
+
+        document.querySelectorAll('a[data-target]').forEach(link => {
+            link.addEventListener('click', function (e) {
+                e.preventDefault(); // evita el salto y el cambio de URL
+
+                const targetId = this.getAttribute('data-target');
+                const targetElement = document.getElementById(targetId);
+
+                if (targetElement) {
+                    targetElement.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+
+    </script>
 
 </body>
 

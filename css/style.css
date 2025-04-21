@@ -12,6 +12,8 @@ header {
     position: fixed;
     width: 100svw;
     padding: 20px 0px;
+    z-index: 1;
+    background: white;
 }
 
 header ul {
@@ -21,9 +23,9 @@ header ul {
     padding: 0;
 }
 
-header a{
+header a {
     color: black;
-    text-decoration: none;   
+    text-decoration: none;
     font-family: "Raleway-Bold";
     font-size: 1.2rem;
 }
@@ -35,8 +37,12 @@ header div {
     gap: 30px;
 }
 
+body {
+    overflow-y: scroll;
+}
+
 main {
-    padding: 8svh 10svw 0px;
+    padding: 0svh 10svw 0px;
 }
 
 .myInfo {
@@ -45,22 +51,23 @@ main {
     justify-content: center;
     align-items: center;
     gap: 8svw;
+    padding-top: 10svh;
 }
 
-.myInfo img{
+.myInfo img {
     width: 18svw;
     height: 18svw;
     border-radius: 50%;
 }
 
-.myInfo img:hover{
+.myInfo img:hover {
     box-shadow: 0px 0px 10px yellow;
 }
 
 .myInfo article {
     display: flex;
     flex-direction: column;
-    gap: 3svh;
+    gap: 2svh;
 }
 
 .myInfo article h1 {
@@ -70,6 +77,144 @@ main {
 
 .myInfo article p {
     font-family: "OpenSans-Light";
-    font-size: 1rem;
+    font-size: 2rem;
     text-align: justify;
+}
+
+.aboutMe {
+    height: 100svh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10svw;
+}
+
+
+.aficiones {
+    width: 75%;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    gap: 4svh;
+}
+
+.aficiones h2 {
+    text-align: center;
+    font-family: "OpenSans-Bold";
+    font-size: 3rem;
+}
+
+.aficiones p {
+    font-family: "OpenSans-Light";
+    font-size: 1.2rem;
+    text-align: justify;
+}
+
+.circle {
+    position: relative;
+    width: 25%;
+    height: 33svh;
+}
+
+.circle img {
+    width: 7svw;
+}
+
+.circle img:nth-child(1) {
+    position: absolute;
+    top: 0;
+    right: 30%;
+}
+
+.circle img:nth-child(2) {
+    position: absolute;
+    bottom: 0;
+}
+
+.circle img:nth-child(3) {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
+
+/* ------------ */
+
+.skills {
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    height: 100svh;
+    justify-content: center;
+}
+
+.skills h2 {
+    margin-bottom: 2rem;
+    font-size: 2rem;
+    font-family: "OpenSans-Bold";
+}
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 1rem;
+    justify-items: center;
+    background: #f5f5f5;
+    padding: 4svh ;
+
+}
+
+/* Card base */
+.card {
+    width: 140px;
+    height: 140px;
+    perspective: 1000px;
+}
+
+.card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+}
+
+.card:hover .card-inner {
+    transform: rotateY(180deg);
+}
+
+.card-front,
+.card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 10px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card-front {
+    background: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card-front img {
+    max-width: 80%;
+    max-height: 80%;
+    object-fit: contain;
+}
+
+.card-back {
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(6px);
+    color: white;
+    transform: rotateY(180deg);
+    font-size: 1rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    font-family: "OpenSans-Bold";
 }
