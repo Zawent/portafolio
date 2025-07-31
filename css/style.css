@@ -70,7 +70,7 @@ header div {
 
 body {
     overflow-y: scroll;
-    background-color: #333333;
+    background-color: #000000;
     color: white;
 }
 
@@ -258,6 +258,20 @@ main {
     padding: 10svh 0;
     text-align: center;
     font-family: "OpenSans-Bold";
+    height: 100svh; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.projects a{
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    font-family: "Raleway-Bold";
+    font-size: 1.2rem;
+    position: relative;
+    transition: color 0.3s ease;
 }
 
 .projects h2 {
@@ -344,4 +358,57 @@ main {
 
 .carousel-btn.next {
     right: 1svw;
+}
+
+
+
+
+/*--------------------*/
+
+
+.contact-section {
+  padding: 10svh 0;
+  text-align: center;
+  font-family: "OpenSans-Bold", sans-serif;
+  height: 100svh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.contact-section h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.contact-section p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+}
+
+.contact-links {
+  display: flex;
+  gap: 7rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.contact-links a {
+  text-decoration: none;
+  color: #ffffff;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: transform 0.2s ease;
+}
+
+.contact-links a:hover {
+  transform: scale(1.05);
+}
+
+.contact-links img {
+  width: 32px;
+  height: 32px;
 }
