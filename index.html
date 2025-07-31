@@ -1,18 +1,196 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Portafolio Uriel Vargas</title>
     <link rel="stylesheet" href="./css/style.css">
 </head>
+
 <body>
-    <section class="myInfo">
-        <img src="./storage/img/carnet foto.jpeg" alt="">
-        <article>
-            
-        </article>
-    </section>
-    
+    <div id="particles-js"></div>
+    <header>
+        <ul>
+            <li><a href="#" data-target="bloqueo-scroll">Introducción</a></li>
+            <li><a href="#" data-target="sobreMi">Sobre mi</a></li>
+            <li><a href="" data-target="habilidades">Habilidades</a></li>
+            <li><a href="" data-target="proyectos">Proyectos</a></li>
+            <li><a href="">Contacto</a></li>
+        </ul>
+        <div>
+            <span>Español</span>
+            <span>Ingles</span>
+        </div>
+    </header>
+    <main>
+        <section id="bloqueo-scroll" class="myInfo">
+            <img src="./storage/img/carnet foto.jpeg" alt="">
+            <article>
+                <h1>Uriel Vargas</h1>
+                <p>
+                    Tecnología con propósito, soluciones con visión
+                </p>
+            </article>
+        </section>
+
+        <section id="sobreMi" class="aboutMe">
+            <article class="aficiones">
+                <h2>Sobre mi</h2>
+                <p>
+                    ¡Hola! Soy un desarrollador web apasionado por la tecnología y el diseño funcional. Me especializo
+                    en crear sitios web modernos, responsivos y accesibles, combinando HTML, CSS y JavaScript para
+                    brindar experiencias intuitivas al usuario.
+                    <br><br>
+                    Me encanta aprender nuevas herramientas y lenguajes que me permitan mejorar mis proyectos.
+                    Actualmente estoy profundizando en frameworks como React, Vue.js y trabajando en proyectos
+                    personales que me
+                    ayuden a seguir creciendo como profesional.
+                    <br><br>
+                    Fuera del código, disfruto resolver acertijos, explorar nuevas ideas creativas y colaborar con otros
+                    desarrolladores para construir soluciones útiles y significativas.
+                </p>
+            </article>
+            <div class="circle">
+                <img src="./storage/img/minesweeper.png" alt="">
+                <img src="./storage/img/workout.webp" alt="">
+                <img src="./storage/img/read.svg" alt="">
+            </div>
+        </section>
+
+        <section id="habilidades" class="skills">
+            <h2>Mis habilidades</h2>
+            <article class="skills-grid">
+                <div class="card">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <img src="./storage/img/python-Br_1nSPf.webp" alt="">
+                        </div>
+                        <div class="card-back">
+                            <h3>Python</h3>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <img src="./storage/img/html-C5pP51ZF.png" alt="">
+                        </div>
+                        <div class="card-back">
+                            <h3>HTML</h3>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <img src="./storage/img/CSS-BwuxcSOM.png" alt="">
+                        </div>
+                        <div class="card-back">
+                            <h3>CSS</h3>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <img src="./storage/img/JavaScript-ae_fozer.png" alt="">
+                        </div>
+                        <div class="card-back">
+                            <h3>JavaScript</h3>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <img src="./storage/img/mysql-D1fmG43W.png" alt="">
+                        </div>
+                        <div class="card-back">
+                            <h3>MySQL</h3>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <img src="./storage/img/Laravel.svg.png" alt="">
+                        </div>
+                        <div class="card-back">
+                            <h3>Laravel</h3>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <img src="./storage/img/Angular_full_color_logo.svg.png" alt="">
+                        </div>
+                        <div class="card-back">
+                            <h3>Angular</h3>
+                        </div>
+                    </div>
+                </div>
+            </article>
+        </section>
+
+        <section id="proyectos" class="projects">
+            <h2>Mis Proyectos</h2>
+            <div class="carousel">
+                <button class="carousel-btn prev">&#10094;</button>
+                <div class="carousel-track">
+                    <div class="project-card active">
+                        <a href="https://github.com/Zawent/Procrastinator-Android">
+                            <img src="./storage/img/procrastinator.png" alt="Proyecto 1">
+                        </a>
+                        <h3>Procrastinator</h3>
+                        <p>Aplicación desarrollada en Android Studio con Java para evitar la procrastinación. Bloquea las aplicaciones a tu gusto que consideres te roben mas tiempo del dia a dia.</p>
+                    </div>
+                    <div class="project-card">
+                        <a href="https://github.com/Zawent/litography-organicer-V2">
+                            <img src="./storage/img/litography.jpeg" alt="Proyecto 2">
+                        </a>
+                        <h3>Litography Organizer</h3>
+                        <p>Aplicación desarrollada con Python y Flask. organización de listados por nombres, apellidos y demas junto con la posibilidad de exportar datos a Excel. Con base a esos datos, renombra archivos del sistema (solo imagenes) para preparar archivos a programas como Ilustrator.</p>
+                    </div>
+                </div>
+                <button class="carousel-btn next">&#10095;</button>
+            </div>
+        </section>
+
+        <section id="contact" class="contact-section">
+            <h2>Contacto</h2>
+            <p>Puedes encontrarme en las siguientes plataformas:</p>
+        
+            <div class="contact-links">
+                <a href="https://discord.com/users/929094763238551653" target="_blank">
+                    <img src="./storage/img/discord.webp" alt="Discord">
+                    <span>Discord</span>
+                </a>
+        
+                <a href="https://www.linkedin.com/in/uriel-fabian-vargas-parada-38617b168/" target="_blank">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg" alt="LinkedIn">
+                    <span>LinkedIn</span>
+                </a>
+        
+                <a href="https://github.com/Zawent" target="_blank">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub">
+                    <span>GitHub</span>
+                </a>
+            </div>
+        </section>
+
+    </main>
+
+    <script src="./js/main.js"></script>
+    <script src="./js/particles.min.js"></script>
+    <script src="./js/app.js"></script>
 </body>
+
 </html>
