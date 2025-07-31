@@ -5,6 +5,13 @@
     margin: 0;
 }
 
+#particles-js {
+    height: 100vh;
+    width: 100%;
+    position: fixed;
+    z-index: -1;
+}
+
 header {
     display: flex;
     align-items: center;
@@ -14,7 +21,7 @@ header {
     padding: 20px 0px;
     z-index: 1;
     background: white;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); 
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 header ul {
@@ -63,7 +70,8 @@ header div {
 
 body {
     overflow-y: scroll;
-    background-color: #cac9c6;
+    background-color: #333333;
+    color: white;
 }
 
 main {
@@ -186,8 +194,7 @@ main {
     grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
     gap: 1rem;
     justify-items: center;
-    background-color: #ecebe9;
-    padding: 4svh ;
+    padding: 4svh;
     border-radius: 1rem;
 }
 
@@ -242,4 +249,99 @@ main {
     font-size: 1rem;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
     font-family: "OpenSans-Bold";
+}
+
+
+/* ------------ */
+
+.projects {
+    padding: 10svh 0;
+    text-align: center;
+    font-family: "OpenSans-Bold";
+}
+
+.projects h2 {
+    font-size: 2.5rem;
+    margin-bottom: 4svh;
+}
+
+.carousel {
+    position: relative;
+    max-width: 60svw;
+    margin: 0 auto;
+    overflow: hidden;
+    border-radius: 1rem;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    /* background-color: white; */
+}
+
+.carousel-track {
+    display: flex;
+    transition: transform 0.5s ease;
+}
+
+.project-card {
+    min-width: 100%;
+    padding: 2svh 2svw;
+    box-sizing: border-box;
+    opacity: 0;
+    transform: scale(0.9);
+    transition: opacity 0.4s ease, transform 0.4s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5svh;
+}
+
+.project-card.active {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.project-card img {
+    width: 100%;
+    max-height: 30svh;
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.project-card h3 {
+    font-size: 1.5rem;
+    font-family: "OpenSans-Bold";
+}
+
+.project-card p {
+    font-size: 1rem;
+    font-family: "OpenSans-Light";
+    text-align: justify;
+    padding: 0 2svw;
+}
+
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: #333;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 2.5rem;
+    height: 2.5rem;
+    font-size: 1.5rem;
+    cursor: pointer;
+    z-index: 2;
+    transition: background-color 0.3s ease;
+}
+
+.carousel-btn:hover {
+    background-color: #555;
+}
+
+.carousel-btn.prev {
+    left: 1svw;
+}
+
+.carousel-btn.next {
+    right: 1svw;
 }

@@ -9,6 +9,7 @@
 </head>
 
 <body>
+    <div id="particles-js"></div>
     <header>
         <ul>
             <li><a href="#" data-target="bloqueo-scroll">Introducción</a></li>
@@ -138,98 +139,43 @@
                 </div>
             </article>
         </section>
+
+        <section id="proyectos" class="projects">
+            <h2>Mis Proyectos</h2>
+            <div class="carousel">
+                <button class="carousel-btn prev">&#10094;</button>
+                <div class="carousel-track">
+                    <div class="project-card active">
+                        <img src="./storage/img/proyecto1.jpg" alt="Proyecto 1">
+                        <h3>Gestor de Tareas</h3>
+                        <p>Aplicación web para organizar tareas pendientes. Permite crear, editar, marcar como
+                            completadas y eliminar tareas usando JavaScript puro.</p>
+                    </div>
+                    <div class="project-card">
+                        <img src="./storage/img/proyecto2.jpg" alt="Proyecto 2">
+                        <h3>Blog Personal</h3>
+                        <p>Un blog desarrollado con Laravel donde se pueden publicar, editar y comentar artículos.
+                            Integración con base de datos MySQL.</p>
+                    </div>
+                    <div class="project-card">
+                        <img src="./storage/img/proyecto3.jpg" alt="Proyecto 3">
+                        <h3>Simulador de Combate RPG</h3>
+                        <p>Juego por consola hecho en Node.js que simula combates entre personajes. Aplica POO y
+                            principios SOLID.</p>
+                    </div>
+                </div>
+                <button class="carousel-btn next">&#10095;</button>
+            </div>
+        </section>
+
+
+
+
     </main>
 
-    <script>
-        let scrollCount = 0;
-        const objetivo = 3;
-        const seccion = document.getElementById("bloqueo-scroll");
-
-        let zoomAplicado = false;
-        let scrollDesbloqueado = false;
-
-        let bloqueoActivo = true;
-
-        function bloquearScroll() {
-            scrollDesbloqueado = false;
-            bloqueoActivo = true;
-        }
-
-        function desbloquearScroll() {
-            scrollDesbloqueado = true;
-            bloqueoActivo = false;
-        }
-
-        // Al inicio de la página
-        if (window.scrollY === 0) {
-            bloquearScroll();
-        }
-
-        // Reiniciar si vuelve al tope
-        window.addEventListener("scroll", () => {
-            if (window.scrollY === 0 && scrollDesbloqueado) {
-                scrollCount = 0;
-                zoomAplicado = false;
-                seccion.style.transform = "scale(1)";
-                bloquearScroll();
-            }
-        });
-
-        // Bloqueo suave del scroll (sin quitar la barra)
-        window.addEventListener("wheel", (e) => {
-            if (bloqueoActivo) {
-                e.preventDefault();
-
-                if (e.deltaY > 0) {
-                    scrollCount++;
-                    console.log(`Intentos de scroll: ${scrollCount}`);
-
-                    if (scrollCount >= objetivo) {
-                        seccion.style.transition = "transform 0.5s ease";
-                        seccion.style.transform = "scale(1.05)";
-                        zoomAplicado = true;
-
-                        setTimeout(() => {
-                            desbloquearScroll();
-                        }, 500);
-                    }
-                }
-                return;
-            }
-
-            // Ya desbloqueado
-            if (zoomAplicado && e.deltaY < 0) {
-                scrollCount--;
-                if (scrollCount <= 0) {
-                    seccion.style.transform = "scale(1)";
-                    zoomAplicado = false;
-                }
-            }
-
-            if (!zoomAplicado && e.deltaY > 0) {
-                scrollCount++;
-                if (scrollCount >= objetivo) {
-                    seccion.style.transform = "scale(1.05)";
-                    zoomAplicado = true;
-                }
-            }
-        }, { passive: false });
-
-        document.querySelectorAll('a[data-target]').forEach(link => {
-            link.addEventListener('click', function (e) {
-                e.preventDefault(); // evita el salto y el cambio de URL
-
-                const targetId = this.getAttribute('data-target');
-                const targetElement = document.getElementById(targetId);
-
-                if (targetElement) {
-                    targetElement.scrollIntoView({ behavior: 'smooth' });
-                }
-            });
-        });
-
-    </script>
-
+    <script src="./js/main.js"></script>
+    <script src="./js/particles.min.js"></script>
+    <script src="./js/app.js"></script>
 </body>
 
 </html>
